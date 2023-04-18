@@ -1,0 +1,88 @@
+<div class="page-wrap h-full slate">
+  <div class="session-form-hold">
+    <div class="col-md-12">
+      <div class="card card-chart">
+        <div class="card-header card-header-danger text-center text-bold">
+          <h4 class="card-title">Sign in</h4>
+        </div>
+        <mat-progress-bar
+          mode="determinate"
+          class="session-progress"
+        ></mat-progress-bar>
+
+        <div class="card-body">
+          <mat-card-content>
+            <!-- <p *ngIf="errorMsg" class="text-center"></p> -->
+            <!-- <small class="text-red">{{errorMsg}}</small> -->
+            <form [formGroup]="signinForm" (ngSubmit)="signin()">
+              <div class="">
+                <mat-form-field class="full-width">
+                  <input
+                    matInput
+                    name="email"
+                    formControlName="email"
+                    placeholder="Username"
+                    value=""
+                  />
+                </mat-form-field>
+                <mat-error *ngIf="isFieldInvalid('email')">
+                  Please enter correct username
+                </mat-error>
+              </div>
+              <!--       
+                <small 
+                *ngIf="signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched" 
+                class="form-error-msg"> Username is required </small> -->
+              <div class="">
+                <mat-form-field class="full-width">
+                  <input
+                    type="password"
+                    name="password"
+                    matInput
+                    formControlName="password"
+                    placeholder="Password"
+                    value=""
+                  />
+                </mat-form-field>
+                <mat-error *ngIf="isFieldInvalid('password')">
+                  Please enter correct password
+                </mat-error>
+              </div>
+
+              <!-- <small 
+                *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched" 
+                class="form-error-msg"> Password is required </small> -->
+              <!-- <div class="pb-16">
+                  <mat-checkbox
+                    name="rememberMe"
+                   
+                    class="pb-16">Remember this computer</mat-checkbox>
+                </div> -->
+              <!-- [formControl]="signinForm.controls['rememberMe']" -->
+              <button
+                mat-raised-button
+                class="mat-primary full-width mb-16"
+                type="submit"
+              >
+                Sign in
+              </button>
+              <div class="text-center">
+                <a
+                  [routerLink]="'/sessions/forgot-password'"
+                  class="mat-primary text-center full-width"
+                  >Forgot password</a
+                >
+                <span fxFlex></span>
+                <a
+                  [routerLink]="'/sessions/signup'"
+                  class="mat-primary text-center full-width"
+                  >Create a new account</a
+                >
+              </div>
+            </form>
+          </mat-card-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

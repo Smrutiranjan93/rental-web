@@ -1,0 +1,36 @@
+<div class="sidebar-panel">
+    <div
+      id="scroll-area"
+      [perfectScrollbar]
+      class="navigation-hold"
+      fxLayout="column"
+    >
+      <div class="sidebar-hold">
+        <!-- App Logo -->
+        <div class="branding px-20">
+          <!-- <img src="assets/images/logo.png" alt="" class="app-logo" /> -->
+          <span class="app-logo-text">Rent Shakti</span>
+  
+          <span
+            style="margin: auto"
+            *ngIf="layoutConf.sidebarStyle !== 'compact'"
+          ></span>
+          <mat-slide-toggle
+            fxHide.lt-md
+            (change)="toggleCollapse()"
+            [checked]="!layoutConf.sidebarCompactToggle"
+            *ngIf="layoutConf.sidebarStyle !== 'compact'"
+          ></mat-slide-toggle>
+        </div>
+  
+        <!-- Sidebar user -->
+       
+        <!-- Navigation -->
+        <app-sidenav
+          [items]="menuItems"
+          [hasIconMenu]="hasIconTypeMenuItem"
+          [iconMenuTitle]="iconTypeMenuTitle"
+        ></app-sidenav>
+      </div>
+    </div>
+  </div>
